@@ -51,15 +51,19 @@ class App extends Component {
         <TextInput
           placeholder="Enter the Item"
           value={this.state.item}
+          onSubmitEditing={() => { this.secondTextInput.focus(); }}
           onChangeText={(item)=>this.setState({item})}
           autoFocus
+          blurOnSubmit={false}
         />
         <TextInput
+          ref={(input) => { this.secondTextInput = input; }}
           keyboardType="numeric"
           value={this.state.price}
           onChangeText={(price)=>this.setState({price})}
           defaultValue="0"
           placeholder="Enter the Price"
+          onSubmitEditing={this.submit}
         />
         <Button
           title="Add Item"
