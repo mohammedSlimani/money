@@ -6,7 +6,7 @@
  * @flow
  */
 
-import React, {Fragment} from 'react';
+import React,{ Fragment, Component} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -14,20 +14,40 @@ import {
   View,
   Text,
   StatusBar,
-  Button
+  Button,
+  TextInput
 } from 'react-native';
 
-const App = () => {
-  return (
-    <Fragment>
+class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      item : "",
+      price:""
+    }
+  }
+  render(){
+    return (
       <View>
-        <Button 
-          title='BUTTT Cheeks'
-          onPress={() => { alert("I love them buttcheeks")}}
+        
+        <View>
+        <TextInput
+          placeholder="Enter the Item"
+          value={this.state.item}
+          onChangeText={(item)=>this.setState({item})}
         />
+        <TextInput
+          keyboardType="numeric"
+          value={this.state.price}
+          onChangeText={(price)=>this.setState({price})}
+          defaultValue="0"
+          autoFocus
+          placeholder="Enter the Price"
+        />
+        </View>
       </View>
-    </Fragment>
-  );
+    );
+  }
 };
 
 
