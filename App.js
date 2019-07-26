@@ -41,6 +41,7 @@ class App extends Component {
       item: "",
       price: ""
     })
+    this.itemInput.focus();
   }
 
   render(){
@@ -49,15 +50,16 @@ class App extends Component {
         
         <View>
         <TextInput
+          ref={(input) => { this.itemInput = input; }}
           placeholder="Enter the Item"
           value={this.state.item}
-          onSubmitEditing={() => { this.secondTextInput.focus(); }}
+          onSubmitEditing={() => { this.priceInput.focus(); }}
           onChangeText={(item)=>this.setState({item})}
           autoFocus
           blurOnSubmit={false}
         />
         <TextInput
-          ref={(input) => { this.secondTextInput = input; }}
+          ref={(input) => { this.priceInput = input; }}
           keyboardType="numeric"
           value={this.state.price}
           onChangeText={(price)=>this.setState({price})}
