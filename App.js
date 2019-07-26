@@ -25,7 +25,24 @@ class App extends Component {
       item : "",
       price:""
     }
+    this.submit = this.submit.bind(this);
+    this.reset = this.reset.bind(this);
   }
+
+  submit(){
+    console.log("submitting");
+    console.log(this.state);
+    console.log(`adding the item ${this.state.item} with price ${this.state.price} `);
+    this.reset();
+  }
+
+  reset(){
+    this.setState({
+      item: "",
+      price: ""
+    })
+  }
+
   render(){
     return (
       <View>
@@ -35,14 +52,18 @@ class App extends Component {
           placeholder="Enter the Item"
           value={this.state.item}
           onChangeText={(item)=>this.setState({item})}
+          autoFocus
         />
         <TextInput
           keyboardType="numeric"
           value={this.state.price}
           onChangeText={(price)=>this.setState({price})}
           defaultValue="0"
-          autoFocus
           placeholder="Enter the Price"
+        />
+        <Button
+          title="Add Item"
+          onPress={this.submit}
         />
         </View>
       </View>
