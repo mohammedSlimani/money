@@ -7,6 +7,9 @@
     "test": "jest"
   },
   "dependencies": {
+    "firebase": "^6.3.3",
+    "global": "^4.4.0",
+    "npm": "^6.10.2",
     "react": "16.8.6",
     "react-native": "0.60.4"
   },
