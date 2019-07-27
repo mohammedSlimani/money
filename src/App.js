@@ -34,9 +34,13 @@ class App extends Component {
   }
 
   submit(){
-    console.log("submitting");
     console.log(this.state);
     console.log(`adding the item ${this.state.item} with price ${this.state.price} `);
+    firebase.database()
+        .ref("items")
+        .set({"item":this.state.item, "price":this.state.price})
+        .then((res)=>console.log(res))
+        .catch(err=>console.log("err",err))
     this.reset();
   }
 
