@@ -13,6 +13,9 @@ import {
   TextInput
 } from 'react-native';
 
+import firebase from "firebase"
+import config from "./config"
+
 class App extends Component {
   constructor(props){
     super(props);
@@ -22,6 +25,12 @@ class App extends Component {
     }
     this.submit = this.submit.bind(this);
     this.reset = this.reset.bind(this);
+  }
+
+  componentDidMount(){
+    console.log("mounting");
+    firebase.initializeApp(config.firebaseConfig);
+    console.log(firebase);
   }
 
   submit(){
