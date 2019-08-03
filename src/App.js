@@ -9,22 +9,12 @@
 import React from 'react';
 import AddItem from './views/AddItem';
 import Stats from './views/Stats';
-import { createStackNavigator, createDrawerNavigator, createAppContainer } from "react-navigation";
-/*
-class App extends React.Component {
-  
-  render() {
-    return (
-      <AddItem/>
-    );
-  }
-};
-*/
+import { createDrawerNavigator, createAppContainer } from "react-navigation";
 
 const AppNavigator = createDrawerNavigator(
   {
-  Home:AddItem,
-  StatsRT:Stats
+    Home: AddItem,
+    StatsRT: Stats
   },
   {
     //hideStatusBar: true,
