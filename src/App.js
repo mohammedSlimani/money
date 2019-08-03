@@ -9,7 +9,7 @@
 import React from 'react';
 import AddItem from './views/AddItem';
 import Stats from './views/Stats';
-import { createStackNavigator, createAppContainer } from "react-navigation";
+import { createStackNavigator, createDrawerNavigator, createAppContainer } from "react-navigation";
 /*
 class App extends React.Component {
   
@@ -21,13 +21,19 @@ class App extends React.Component {
 };
 */
 
-const AppNavigator = createStackNavigator(
+const AppNavigator = createDrawerNavigator(
   {
   Home:AddItem,
   StatsRT:Stats
   },
   {
-    initialRouteName: "Home"
+    //hideStatusBar: true,
+    drawerBackgroundColor: 'rgba(255,255,255,.9)',
+    overlayColor: '#6b52ae',
+    contentOptions: {
+      activeTintColor: '#fff',
+      activeBackgroundColor: '#6b52ae',
+    },
   }
 )
 

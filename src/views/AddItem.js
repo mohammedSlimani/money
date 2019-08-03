@@ -9,6 +9,10 @@ import firebase from "firebase"
 import config from "./../config"
 
 export class AddItem extends Component {
+    static navigationOptions = {
+        title:"Home"
+    }
+
     constructor(props) {
         super(props);
         this.state = {
@@ -84,7 +88,7 @@ export class AddItem extends Component {
                     />
                     <Button
                         title="see stats"
-                        onPress={()=>{this.props.navigation.navigate('StatsRT')}}
+                        onPress={this.props.navigation.openDrawer}
                     />
                 </View>
             </View>

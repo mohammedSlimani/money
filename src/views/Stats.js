@@ -3,6 +3,10 @@ import {View,Text,Button} from 'react-native'
 
 
 class Stats extends Component {
+    static navigationOptions = {
+        title:"Stats"
+    }
+
     render() {
         return (
             <View>
@@ -11,7 +15,7 @@ class Stats extends Component {
                 </Text>
                 <Button
                     title="Go back"
-                    onPress={()=>this.props.navigation.navigate("Home")}
+                    onPress={this.props.navigation.openDrawer}
                 />
             </View>
         )
