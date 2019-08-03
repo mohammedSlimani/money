@@ -47,11 +47,6 @@ export class AddItem extends Component {
     }
 
     reset() {
-        console.log("resetting the State");
-        let db = firebase.database()
-        let itemRef = db.ref().child("items");
-        itemRef.orderByChild("item").once("value").then(data => console.log(data.val()))
-
         this.setState({
             item: "",
             price: ""
