@@ -33,7 +33,7 @@ export class AddItem extends Component {
         console.log(this.state);
         console.log(`adding the item ${this.state.item} with price ${this.state.price} `);
         //TODO: Use push instead of set...
-        let paylaod = {
+        let payload = {
             "item": this.state.item,
             "price": this.state.price,
             "date": new Date()
