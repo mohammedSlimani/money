@@ -8,10 +8,10 @@ import DB from '../services/DB';
 
 export class AddItem extends Component {
     static navigationOptions = {
-        title:"Home"
+        title: "Home"
     }
-    
-    DB=new DB();
+
+    DB = new DB();
 
     constructor(props) {
         super(props);
@@ -21,12 +21,9 @@ export class AddItem extends Component {
         }
     }
 
-    componentDidMount() {
-    }
-
     submit = () => {
         console.log(`adding the item ${this.state.item} with price ${this.state.price} `);
-        this.DB.addItem(this.state.item,this.state.price);
+        this.DB.addItem(this.state.item, this.state.price);
         this.reset();
     }
 
@@ -67,7 +64,7 @@ export class AddItem extends Component {
                     />
                     <Button
                         title="see stats"
-                        onPress={()=>this.props.navigation.navigate('StatsRT')}
+                        onPress={() => this.props.navigation.navigate('StatsRT')}
                     />
                 </View>
             </View>
