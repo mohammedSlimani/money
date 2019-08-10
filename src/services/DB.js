@@ -5,9 +5,10 @@ export default class DB {
 
     static instance = null;
 
-    async constructor() {
-        if(this.instance == null)    
-            this.instance = await firebase.initializeApp(config.firebaseConfig);
+    constructor() {
+        if (!firebase.apps.length)
+            this.instance = firebase.initializeApp(config.firebaseConfig);
+
     }
 
     getInstance = () => {
@@ -25,7 +26,7 @@ export default class DB {
             .catch(err => console.log("err", err));
     }
 
-    getAllItems = () =>{
+    getAllItems = async () => {
         let myItems = null;
         let db = this.instance.database()
         let itemRef = db.ref().child("items");

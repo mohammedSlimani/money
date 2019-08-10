@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, Button } from 'react-native'
-
-import firebase from "firebase"
 import DB from '../services/DB';
-import console = require('console');
 
 class Stats extends Component {
     static navigationOptions = {
@@ -20,7 +17,7 @@ class Stats extends Component {
 
     getStats = async () => {
         const items = await this.DB.getAllItems();
-        console.log('Got all the items',items);
+        console.log('Got all the items', items);
     }
 
     render() {
@@ -31,7 +28,7 @@ class Stats extends Component {
                 </Text>
                 <Button
                     title="All items"
-                    onPress={()=>{this.getStats()}}
+                    onPress={() => { this.getStats() }}
                 />
                 <Button
                     title="Go back"
