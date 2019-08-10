@@ -1,10 +1,10 @@
 import AddItem from './views/AddItem';
 import Stats from './views/Stats';
-import { createDrawerNavigator, createAppContainer } from "react-navigation";
+import { createSwitchNavigator, createAppContainer } from "react-navigation";
 
-const AppNavigator = createDrawerNavigator(
+const AppNavigator = createSwitchNavigator(
   {
-    Home: AddItem,
+    ItemRT: AddItem,
     StatsRT: Stats
   },
   {
