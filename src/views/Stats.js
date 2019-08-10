@@ -1,29 +1,26 @@
 import React, { Component } from 'react'
-import {View,Text,Button} from 'react-native'
+import { View, Text, Button } from 'react-native'
 
 import firebase from "firebase"
+import DB from '../services/DB';
+import console = require('console');
 
 class Stats extends Component {
-    constructor(props){
+    static navigationOptions = {
+        title: "Stats"
+    }
+
+    DB = new DB();
+    constructor(props) {
         super(props);
         this.state = {
-            items:null
+            items: null
         }
     }
 
-    static navigationOptions = {
-        title:"Stats"
-    }
-
-    async componentDidMount(){
-        let myItems=null;
-        let db = firebase.database()
-        let itemRef = db.ref().child("items");
-        await itemRef.orderByChild("item").once("value").then(data => myItems = data.val());
-        this.setState({
-            items:myItems
-        })
-        console.log("Data has been loaded", this.state.items)
+    getStats = async () => {
+        const items = await this.DB.getAllItems();
+        console.log('Got all the items',items);
     }
 
     render() {
@@ -33,8 +30,12 @@ class Stats extends Component {
                     This is the statistic
                 </Text>
                 <Button
+                    title="All items"
+                    onPress={()=>{this.getStats()}}
+                />
+                <Button
                     title="Go back"
-                    onPress={()=>this.props.navigation.navigate('ItemRT')}
+                    onPress={() => this.props.navigation.navigate('ItemRT')}
                 />
             </View>
         )

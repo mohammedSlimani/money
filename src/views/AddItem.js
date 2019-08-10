@@ -4,14 +4,14 @@ import {
     Button,
     TextInput
 } from 'react-native';
-
-import firebase from "firebase"
-import config from "./../config"
+import DB from '../services/DB';
 
 export class AddItem extends Component {
     static navigationOptions = {
         title:"Home"
     }
+    
+    DB=new DB();
 
     constructor(props) {
         super(props);
@@ -22,23 +22,11 @@ export class AddItem extends Component {
     }
 
     componentDidMount() {
-        console.log("mounting");
-        firebase.initializeApp(config.firebaseConfig);
-        console.log(firebase);
     }
 
     submit = () => {
         console.log(`adding the item ${this.state.item} with price ${this.state.price} `);
-        let payload = {
-            "item": this.state.item,
-            "price": this.state.price,
-            "date_added": firebase.database.ServerValue.TIMESTAMP,
-        }
-        firebase.database()
-            .ref("items")
-            .push(payload)
-            .then((res) => console.log(res))
-            .catch(err => console.log("err", err))
+        this.DB.addItem(this.state.item,this.state.price);
         this.reset();
     }
 
