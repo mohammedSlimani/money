@@ -19,8 +19,6 @@ export class AddItem extends Component {
             item: "",
             price: ""
         }
-        this.submit = this.submit.bind(this);
-        this.reset = this.reset.bind(this);
     }
 
     componentDidMount() {
@@ -29,7 +27,7 @@ export class AddItem extends Component {
         console.log(firebase);
     }
 
-    submit() {
+    submit = () => {
         console.log(`adding the item ${this.state.item} with price ${this.state.price} `);
         let payload = {
             "item": this.state.item,
@@ -44,7 +42,7 @@ export class AddItem extends Component {
         this.reset();
     }
 
-    reset() {
+    reset = () => {
         this.setState({
             item: "",
             price: ""
@@ -81,7 +79,7 @@ export class AddItem extends Component {
                     />
                     <Button
                         title="see stats"
-                        onPress={this.props.navigation.openDrawer}
+                        onPress={()=>this.props.navigation.navigate('StatsRT')}
                     />
                 </View>
             </View>

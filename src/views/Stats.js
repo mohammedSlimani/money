@@ -34,7 +34,7 @@ class Stats extends Component {
                 </Text>
                 <Button
                     title="Go back"
-                    onPress={this.props.navigation.openDrawer}
+                    onPress={()=>this.props.navigation.navigate('ItemRT')}
                 />
             </View>
         )
