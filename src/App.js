@@ -1,9 +1,11 @@
 import AddItem from './views/AddItem';
 import Stats from './views/Stats';
 import { createSwitchNavigator, createAppContainer } from "react-navigation";
+import Login from './views/Login';
 
 const AppNavigator = createSwitchNavigator(
   {
+    LoginRt:Login,
     ItemRT: AddItem,
     StatsRT: Stats
   },
