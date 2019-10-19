@@ -1,23 +1,17 @@
-import AddItem from './views/AddItem';
-import Stats from './views/Stats';
 import { createSwitchNavigator, createAppContainer } from "react-navigation";
-import Login from './views/Login';
+import AuthLoadingScreen from "./screens/AuthLoading/AuthLoadingScreen";
+import AuthScreen from "./screens/Auth/AuthScreen";
+import HomeDrawer from "./screens/Home/HomeNavigation";
 
 const AppNavigator = createSwitchNavigator(
-  {
-    LoginRt:Login,
-    ItemRT: AddItem,
-    StatsRT: Stats
-  },
-  {
-    //hideStatusBar: true,
-    drawerBackgroundColor: 'rgba(255,255,255,.9)',
-    overlayColor: '#6b52ae',
-    contentOptions: {
-      activeTintColor: '#fff',
-      activeBackgroundColor: '#6b52ae',
-    },
-  }
-)
+	{
+		AuthLoading: AuthLoadingScreen,
+		Auth: AuthScreen,
+		Home: HomeDrawer
+	},
+	{
+		initialRouteName: "AuthLoading"
+	}
+);
 
 export default createAppContainer(AppNavigator);

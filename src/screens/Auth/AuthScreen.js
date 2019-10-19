@@ -1,21 +1,17 @@
-import React, { Component } from 'react'
-import {View, Button, AsyncStorage} from 'react-native'
+import React from 'react'
+import { Container, Text } from 'native-base';
 
 class AuthScreen extends React.Component {
-	static navigationOptions = {
-		title: "Please sign in"
-	};
-
+	
 	render() {
 		return (
-			<View>
-				<Button title="Sign in!" onPress={this._signInAsync} />
-			</View>
+			<Container>
+                <Text>
+                    AUTH SCREEN
+                </Text>
+			</Container>
 		);
 	}
-
-	_signInAsync = async () => {
-		await AsyncStorage.setItem("userToken", "abc");
-		this.props.navigation.navigate("App");
-	};
 }
+
+export default AuthScreen;
