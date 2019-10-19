@@ -1,8 +1,10 @@
-import React from 'react'
-import { Container, Text, Header, Body, Title, Left, Right, Button } from 'native-base';
+import React from "react";
+import { Container, Text, Header, Body, Title, Button } from "native-base";
 
 class AuthScreen extends React.Component {
-	
+	async _auth() {
+		console.log("Authenticating...");
+	}
 	render() {
 		return (
 			<Container>
@@ -11,7 +13,7 @@ class AuthScreen extends React.Component {
 				</Header>
 				<Body>
 					<Text>KEEP TRACK OF YOUR MONEY</Text>
-					<Button >
+					<Button onPress={this._auth}>
 						<Text>Login With FaceBook</Text>
 					</Button>
 				</Body>
