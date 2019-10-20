@@ -20,6 +20,10 @@ export class AddItemScreen extends Component {
 		};
 	}
 
+	_submit(){
+		console.log('Submitting ', this.state);	
+	}
+
 	render() {
 		return (
 			<Container>
@@ -35,19 +39,26 @@ export class AddItemScreen extends Component {
 				</Header>
 				<Body>
 					<Input
+						ref="titleInput"
 						placeholder="Item Name"
-						autoFocus="true"
+						autoFocus
 						onChangeText={title => this.setState({ title })}
+						onSubmitEditing = { () => this.refs.priceInput._root.focus()}
 					/>
 					<Input
+						ref='priceInput'
 						placeholder="price"
 						keyboardType="decimal-pad"
 						onChangeText={price => this.setState({ price })}
+						onSubmitEditing={()=> {
+							this._submit();
+							this.refs.titleInput._root.focus();
+						}}
 					/>
 				</Body>
 
-				<Button onPress={() => console.log("state", this.state)}>
-					<Text>BO</Text>
+				<Button onPress={()=> this._submit()}>
+					<Text>SEND</Text>
 				</Button>
 			</Container>
 		);
