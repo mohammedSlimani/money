@@ -22,6 +22,12 @@ export class AddItemScreen extends Component {
 
 	_submit(){
 		console.log('Submitting ', this.state);	
+		this.refs.titleInput._root.clear()
+		this.refs.priceInput._root.clear()
+		this.setState({
+			title:"",
+			price:""
+		})
 	}
 
 	render() {
@@ -44,12 +50,14 @@ export class AddItemScreen extends Component {
 						autoFocus
 						onChangeText={title => this.setState({ title })}
 						onSubmitEditing = { () => this.refs.priceInput._root.focus()}
+						blurOnSubmit={false}
 					/>
 					<Input
 						ref='priceInput'
 						placeholder="price"
 						keyboardType="decimal-pad"
 						onChangeText={price => this.setState({ price })}
+						blurOnSubmit={false}
 						onSubmitEditing={()=> {
 							this._submit();
 							this.refs.titleInput._root.focus();
